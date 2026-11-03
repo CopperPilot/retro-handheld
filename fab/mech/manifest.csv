@@ -1,0 +1,10 @@
+part,files,process,material,finish,qty,bbox_mm,volume_cm3,mass_g,service
+rear_shell,rear_shell.stl rear_shell.step,cnc,6061-T6 aluminum,bead-blasted dark grey anodized,1,63.0x81.0x11.8,20.26,54.7,JLCCNC 3-axis milling
+shoulder_buttons,shoulder_buttons.stl shoulder_buttons.step,cnc,6061-T6 aluminum,black anodized,1,56.0x2.5x8.5,0.38,1.0,JLCCNC 3-axis milling
+dpad,dpad.stl dpad.step,cnc,6061-T6 aluminum,black anodized,1,21.4x21.4x8.9,1.21,3.3,JLCCNC 3-axis milling
+action_buttons,action_buttons.stl action_buttons.step,cnc,6061-T6 aluminum,black anodized,1,21.8x21.4x8.9,1.07,2.9,JLCCNC 3-axis milling
+start_select_buttons,start_select_buttons.stl start_select_buttons.step,cnc,6061-T6 aluminum,black anodized,1,14.3x6.2x8.9,0.25,0.7,JLCCNC 3-axis milling
+front_shell,front_shell.stl front_shell.step,cnc,6061-T6 aluminum,bead-blasted dark grey anodized,1,63.0x81.0x9.2,10.40,28.1,JLCCNC 3-axis milling
+display_window,display_window.stl display_window.step,cnc,PMMA acrylic / tempered cover glass,clear optical window with black border mask,1,56.8x46.4x3.9,8.23,9.9,JLCCNC 3-axis milling
+display,,purchased,ER-TFT024-3,,1,52.0x40.0x2.2,,,https://www.buydisplay.com/2-4-inch-ips-tft-lcd-display-panel-320x240-ili9341-spi-rgb-mcu-interface
+battery,,purchased,LP503450-1200mAh,,1,34.0x50.0x5.0,,,https://www.adafruit.com/product/258

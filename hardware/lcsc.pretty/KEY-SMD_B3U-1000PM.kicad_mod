@@ -1,0 +1,240 @@
+(footprint "KEY-SMD_B3U-1000PM"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -4 0)
+		(layer "F.SilkS")
+		(uuid "1ae12c19-bbe0-4c23-acce-07f357516a7b")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "KEY-SMD_B3U-1000PM"
+		(at 0 4 0)
+		(layer "F.Fab")
+		(uuid "b0aaefad-4469-41fe-92ca-38e7dc52e33b")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "49bfc023-46d7-453d-a925-cb2e960c9522")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "87fca6a3-3aa0-41a9-b749-50191bf2ed54")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "LCSC Part" "C231329"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "e505f141-3b18-463e-98ba-f8b99280d844")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -1.5 -1.25)
+		(end 1.5 -1.25)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "91c014c5-2779-4a00-bc87-1bdd92e23a1f")
+	)
+	(fp_line
+		(start -1.5 -1.25)
+		(end 1.5 -1.25)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "91fce064-4bfe-44dc-b51d-72a88282651c")
+	)
+	(fp_line
+		(start -1.5 -1.08)
+		(end -1.5 -1.25)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "9d4a8f0c-e475-4bc3-8cfa-89640b11caa2")
+	)
+	(fp_line
+		(start -1.5 1.25)
+		(end -1.5 1.09)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "8b8a605e-4822-4e73-b2cd-6794b1316ce0")
+	)
+	(fp_line
+		(start -1.5 1.25)
+		(end 1.5 1.25)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "742c1482-15ee-4236-bd5e-8a5679bb001a")
+	)
+	(fp_line
+		(start 1.5 -1.25)
+		(end 1.5 -1.08)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "2ba34879-ddeb-4ef9-a55b-3595be832b6d")
+	)
+	(fp_line
+		(start 1.5 1.08)
+		(end 1.5 1.25)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b3d69d17-7ef7-4001-a227-206c760560f4")
+	)
+	(fp_line
+		(start 1.5 1.25)
+		(end -1.5 1.25)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "dfede996-a160-4f69-a385-da1e9569d9cd")
+	)
+	(fp_circle
+		(center -2 -1.25)
+		(end -1.97 -1.25)
+		(stroke
+			(width 0.06)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "2ee67a8f-815f-4470-9699-79a1d87cd21a")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 0.8 0)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "3f8d7854-d44b-41a9-ba4a-83c2479b3079")
+	)
+	(fp_line
+		(start -1.5 -1.25)
+		(end 1.5 -1.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "5aa72da5-0ed2-43a7-b07a-d200c4c787cd")
+	)
+	(fp_line
+		(start -1.5 1.25)
+		(end -1.5 -1.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "24c2aa43-a8e2-4db8-850a-c961b25fc369")
+	)
+	(fp_line
+		(start 1.5 -1.25)
+		(end 1.5 1.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "38ce3755-e292-4cba-a371-37e985d736d3")
+	)
+	(fp_line
+		(start 1.5 1.25)
+		(end -1.5 1.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "fbac37d9-8f8d-4ea4-a4d7-ea333ee8f2bd")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "38037053-3a3b-44d4-806c-45c1bf9d8494")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -1.7 0)
+		(size 0.8 1.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "06dcc2d4-34df-4900-885e-d0d2909e6254")
+	)
+	(pad "2" smd rect
+		(at 1.7 0)
+		(size 0.8 1.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "405a45c4-cfbf-4e3f-9fcf-3ef5ad3b107f")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/lcsc.3dshapes/KEY-SMD_2P-L3.0-W2.5-H1.6-LS4.0.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

@@ -1,0 +1,625 @@
+schema_version: rea-hardware/spec/v1
+product:
+  slug: pocket-retro-handheld
+  name: Pocket Retro Game Console
+  summary: "Ultra-compact vertical metal handheld console with 2.4-inch IPS LCD, D-pad, ABXY/Start/Select/L1/L2/R1/R2 controls, 1S LiPo battery, and USB-C charging"
+  category: handheld game console
+inputs:
+  images:
+    - inputs/front.jpg
+    - inputs/front_and_rear.jpg
+    - inputs/front_in_hand.jpg
+    - inputs/rear.jpg
+  prompt: inputs/prompt.md
+  views:
+    front: inputs/front.jpg
+    rear: inputs/rear.jpg
+envelope:
+  width_mm: 63.0
+  height_mm: 81.0
+  depth_mm: 17.0
+  corner_radius_mm: 2.5
+  derivation: "Published specifications for this 2.4-inch vertical metal handheld class list 63 x 81 x 17 mm (h/w = 1.2857); rea_hardware measure on inputs/front.jpg at --width-mm 63 gives 63.0 x 81.1 mm (h/w = 1.2878) and inputs/rear.jpg gives 63.0 x 81.2 mm (h/w = 1.2888)."
+  front_origin_world_mm: [-2.5, 2.5, 12.75]
+fidelity:
+  out_of_scope:
+    - printed front indicator graphic bars above Select/Start
+    - rear regulatory silkscreen text
+    - 3.5 mm headphone jack and microSD slot not shown in photos or requested in prompt
+  dimensions:
+    - {name: body_width, kind: overall_width, value_mm: 63.0, tol_mm: 1.0, source: "Published spec 63 x 81 x 17 mm and rea_hardware measure inputs/front.jpg --width-mm 63"}
+    - {name: body_height, kind: overall_height, value_mm: 81.0, tol_mm: 1.0, source: "Published spec 63 x 81 x 17 mm and rea_hardware measure inputs/front.jpg (81.1 mm)"}
+    - {name: body_depth, kind: overall_depth, value_mm: 17.0, tol_mm: 1.0, source: "Published spec 63 x 81 x 17 mm"}
+    - {name: plan_corner_radius, kind: corner_radius, value_mm: 2.5, tol_mm: 0.8, source: "Measured outer corner radius on inputs/front.jpg and inputs/rear.jpg"}
+    - {name: display_bezel, kind: bezel, value_mm: 2.94, tol_mm: 0.8, source: "rea_hardware measure inputs/front.jpg: (63.0 - 57.13) / 2 = 2.94 mm side bezel around 57.13 x 46.79 mm cover glass"}
+    - {name: edge_thickness, kind: edge_thickness, value_mm: 15.5, tol_mm: 1.5, source: "17.0 mm body depth minus 0.75 mm front/rear perimeter chamfers"}
+    - {name: center_thickness, kind: center_thickness, value_mm: 17.0, tol_mm: 1.0, source: "Published spec 17.0 mm full body thickness"}
+  must_match:
+    - id: F_DISP
+      name: 2.4-inch display window
+      kind: display
+      view: front
+      center_mm: [31.5, 27.14]
+      size_mm: [57.13, 46.79]
+      implement: purchased
+      source: photo
+      confidence: high
+      notes: "Measured region #1 in inputs/front.jpg (57.13 x 46.79 mm cover window over 2.4-inch 4:3 IPS panel)"
+    - id: F_DPAD_UP
+      name: D-pad up button
+      kind: button
+      view: front
+      center_mm: [14.08, 55.13]
+      size_mm: [6.8, 6.8]
+      implement: pcb+case
+      source: photo
+      confidence: high
+      notes: "Top arm of cross D-pad region #6 (center 14.08, 61.63, size 20.86 x 20.56 mm) in inputs/front.jpg"
+    - id: F_DPAD_DOWN
+      name: D-pad down button
+      kind: button
+      view: front
+      center_mm: [14.08, 68.13]
+      size_mm: [6.8, 6.8]
+      implement: pcb+case
+      source: photo
+      confidence: high
+      notes: "Bottom arm of cross D-pad region #6 in inputs/front.jpg"
+    - id: F_DPAD_LEFT
+      name: D-pad left button
+      kind: button
+      view: front
+      center_mm: [7.58, 61.63]
+      size_mm: [6.8, 6.8]
+      implement: pcb+case
+      source: photo
+      confidence: high
+      notes: "Left arm of cross D-pad region #6 in inputs/front.jpg"
+    - id: F_DPAD_RIGHT
+      name: D-pad right button
+      kind: button
+      view: front
+      center_mm: [20.58, 61.63]
+      size_mm: [6.8, 6.8]
+      implement: pcb+case
+      source: photo
+      confidence: high
+      notes: "Right arm of cross D-pad region #6 in inputs/front.jpg"
+    - id: F_BTN_X
+      name: X action button
+      kind: button
+      view: front
+      center_mm: [47.96, 55.86]
+      size_mm: [8.2, 8.2]
+      implement: pcb+case
+      source: photo
+      confidence: high
+      notes: "Measured region #5 in inputs/front.jpg"
+    - id: F_BTN_Y
+      name: Y action button
+      kind: button
+      view: front
+      center_mm: [41.32, 62.14]
+      size_mm: [8.2, 8.2]
+      implement: pcb+case
+      source: photo
+      confidence: high
+      notes: "Measured region #7 in inputs/front.jpg"
+    - id: F_BTN_A
+      name: A action button
+      kind: button
+      view: front
+      center_mm: [54.49, 62.29]
+      size_mm: [8.2, 8.2]
+      implement: pcb+case
+      source: photo
+      confidence: high
+      notes: "Measured region #8 in inputs/front.jpg"
+    - id: F_BTN_B
+      name: B action button
+      kind: button
+      view: front
+      center_mm: [47.86, 68.67]
+      size_mm: [8.2, 8.2]
+      implement: pcb+case
+      source: photo
+      confidence: high
+      notes: "Measured region #12 in inputs/front.jpg"
+    - id: F_BTN_SE
+      name: Select button
+      kind: button
+      view: front
+      center_mm: [27.09, 70.34]
+      size_mm: [5.8, 5.8]
+      implement: pcb+case
+      source: photo
+      confidence: high
+      notes: "Measured region #9 in inputs/front.jpg; actuates SW9 placed at (24.59, 66.85) on F.Cu (spanning Y=-68.10..-65.60 mm, 1.03 mm clear North of J1 rear edge at Y=-69.13 mm) via concentric cylindrical plunger at (24.59, -66.85)"
+    - id: F_BTN_ST
+      name: Start button
+      kind: button
+      view: front
+      center_mm: [35.15, 70.34]
+      size_mm: [5.8, 5.8]
+      implement: pcb+case
+      source: photo
+      confidence: high
+      notes: "Measured region #11 in inputs/front.jpg; actuates SW10 placed at (32.65, 66.85) on F.Cu (spanning Y=-68.10..-65.60 mm, 1.03 mm clear North of J1 rear edge at Y=-69.13 mm) via concentric cylindrical plunger at (32.65, -66.85)"
+    - id: F_BTN_L1
+      name: L1 shoulder button
+      kind: button
+      view: top
+      center_mm: [8.5, 4.8]
+      size_mm: [10.0, 4.0]
+      implement: pcb+case
+      source: photo
+      confidence: high
+      notes: "Outer-left inline top shoulder button visible at top-right of inputs/rear.jpg"
+    - id: F_BTN_L2
+      name: L2 shoulder button
+      kind: button
+      view: top
+      center_mm: [18.8, 4.8]
+      size_mm: [8.0, 4.0]
+      implement: pcb+case
+      source: photo
+      confidence: high
+      notes: "Inner-left inline top shoulder button visible at top-right of inputs/rear.jpg"
+    - id: F_BTN_R2
+      name: R2 shoulder button
+      kind: button
+      view: top
+      center_mm: [44.2, 4.8]
+      size_mm: [8.0, 4.0]
+      implement: pcb+case
+      source: photo
+      confidence: high
+      notes: "Inner-right inline top shoulder button visible at top-left of inputs/rear.jpg"
+    - id: F_BTN_R1
+      name: R1 shoulder button
+      kind: button
+      view: top
+      center_mm: [54.5, 4.8]
+      size_mm: [10.0, 4.0]
+      implement: pcb+case
+      source: photo
+      confidence: high
+      notes: "Outer-right inline top shoulder button visible at top-left of inputs/rear.jpg"
+    - id: F_USBC
+      name: USB-C charging port
+      kind: port
+      view: bottom
+      center_mm: [31.5, 11.7]
+      size_mm: [9.5, 3.6]
+      implement: pcb+case
+      source: prompt
+      confidence: high
+      notes: "Bottom-edge USB-C charging and USB DFU port aligned with J1 placed at (29.00, 74.18) on F.Cu (spanning X=24.53..33.47, Y=-77.03..-69.13 mm, 1.03 mm clear South of SW9/SW10 at Y=-68.10..-65.60 mm)"
+    - id: F_REAR_GROOVES
+      name: Rear vertical grip grooves
+      kind: other
+      view: rear
+      center_mm: [31.5, 52.1]
+      size_mm: [52.8, 34.8]
+      implement: case
+      source: photo
+      confidence: high
+      notes: "14 vertical stadium grip grooves milled into lower half of rear shell (regions #2 and #3 in inputs/rear.jpg)"
+    - id: F_LANYARD
+      name: Rear lanyard loop slots
+      kind: other
+      view: rear
+      center_mm: [8.7, 73.0]
+      size_mm: [6.4, 4.5]
+      implement: case
+      source: photo
+      confidence: high
+      notes: "Pair of vertical pill-shaped lanyard holes at bottom-left of inputs/rear.jpg"
+fab:
+  profile: jlcpcb
+  layers: 2
+  thickness_mm: 1.6
+  assembly_sides: [top]
+electrical:
+  mcu: "STM32F412RET6 (LCSC C89374, LQFP-64, 100 MHz Cortex-M4F, 512 KB Flash, 256 KB contiguous SRAM, USB 2.0 FS, SPI)"
+  power: "USB-C 5V input with 5.1k CC1/CC2 pull-downs and USBLC6-2SC6 ESD protection -> TP4056 1S LiPo charger (780 mA) + AO3401A/B5819W load-sharing power path -> RT6150AGQW 3.3V 800mA synchronous buck-boost regulator"
+  blocks:
+    - id: power
+      purpose: "USB-C 5V receptacle J1 with 5.1k CC pull-downs, USBLC6-2SC6 ESD array, TP4056 1S Li-Ion charger U2, AO3401A P-MOSFET Q1 + B5819W Schottky D1 load-sharing path from J3 battery connector, and RT6150AGQW 3.3V synchronous buck-boost converter U3 with 2.2uH inductor L1"
+      key_parts: [TYPE-C-31-M-12, USBLC6-2SC6, TP4056, AO3401A, B5819W SL, RT6150AGQW, SWPA3015S2R2MT, "532610271"]
+      reference: "STMicroelectronics AN4488 & Richtek RT6150A datasheet application circuit"
+    - id: mcu
+      purpose: "STM32F412RET6 MCU U1 with 12 MHz HSE crystal Y1 (X322512MSB4SI), 2.2uF VCAP_1 capacitor, 10k NRST pull-up, 10k BOOT0 pull-down for normal boot / USB DFU flashing over PA11/PA12"
+      key_parts: [STM32F412RET6, X322512MSB4SI]
+      reference: "STMicroelectronics AN2606 & STM32F412RET6 datasheet hardware getting started guide"
+    - id: display
+      purpose: "18-pin 0.5mm pitch FPC connector J2 (FH12-18S-0.5SH(55)) driving 2.4-inch 320x240 ILI9341 IPS TFT LCD over 4-wire SPI1 (PA4 CS, PA5 SCK, PA7 MOSI, PA6 DC, PC4 RESET) plus 2N7002 MOSFET Q2 PWM backlight driver on PB0 (TIM3_CH3) with 5.1 ohm current-limiting resistor from +3V3"
+      key_parts: [FH12-18S-0.5SH(55), 2N7002]
+      reference: "BuyDisplay ER-TFT024-3 2.4-inch 18-pin 4-wire SPI IPS TFT interfacing reference"
+    - id: controls
+      purpose: "10 top-actuated SMD tactile switches SW1..SW10 (Omron B3U-1000P) for D-pad Up/Down/Left/Right, X, Y, A, B, Select, Start and 4 right-angle side-actuated SMD tactile switches SW11..SW14 (Omron B3U-3100P) for top shoulder buttons L1, L2, R2, R1 wired active-low to dedicated MCU GPIO pins"
+      key_parts: [B3U-1000P, B3U-3100P]
+      reference: "Omron B3U-1000P / B3U-3100P datasheet SPST active-low GPIO switch circuit"
+  nets_must_connect:
+    - ["J1.A4", "U2.VCC"]
+    - ["J1.A6", "U4.1"]
+    - ["J1.A7", "U4.3"]
+    - ["U4.6", "U1.PA12"]
+    - ["U4.4", "U1.PA11"]
+    - ["U2.BAT", "J3.1"]
+    - ["U3.LX1", "L1.1"]
+    - ["U3.LX2", "L1.2"]
+    - ["U3.VOUT", "U1.VDD"]
+    - ["U1.PA5", "J2.9"]
+    - ["U1.PA7", "J2.10"]
+    - ["U1.PB0", "Q2.1"]
+  high_speed:
+    - name: usb_fs_diff
+      board: main
+      nets: ["USB_DP", "USB_DM", "USB_D+", "USB_D-"]
+      kind: diff_pairs
+      tolerance_mm: 2.0
+      diff_impedance_ohm: 90.0
+      source: "STMicroelectronics AN4879 USB hardware and PCB guidelines for STM32 MCUs (90 ohm differential)"
+board:
+  width_mm: 58.0
+  height_mm: 76.0
+  corner_radius_mm: 2.0
+  mounting_holes:
+    - {x_mm: 4.0, y_mm: 47.0, drill_mm: 2.2, plated: true}
+    - {x_mm: 54.0, y_mm: 47.0, drill_mm: 2.2, plated: true}
+    - {x_mm: 4.0, y_mm: 72.5, drill_mm: 2.2, plated: true}
+    - {x_mm: 54.0, y_mm: 72.5, drill_mm: 2.2, plated: true}
+  placement:
+    - {ref: SW1, role: dpad_up, side: top, x_mm: 11.58, y_mm: 52.63, rot_deg: 0, feature: F_DPAD_UP, tolerance_mm: 1.0}
+    - {ref: SW2, role: dpad_down, side: top, x_mm: 11.58, y_mm: 65.63, rot_deg: 0, feature: F_DPAD_DOWN, tolerance_mm: 1.0}
+    - {ref: SW3, role: dpad_left, side: top, x_mm: 5.08, y_mm: 59.13, rot_deg: 0, feature: F_DPAD_LEFT, tolerance_mm: 1.0}
+    - {ref: SW4, role: dpad_right, side: top, x_mm: 18.08, y_mm: 59.13, rot_deg: 0, feature: F_DPAD_RIGHT, tolerance_mm: 1.0}
+    - {ref: SW5, role: btn_x, side: top, x_mm: 45.46, y_mm: 53.36, rot_deg: 0, feature: F_BTN_X, tolerance_mm: 1.0}
+    - {ref: SW6, role: btn_y, side: top, x_mm: 38.82, y_mm: 59.64, rot_deg: 0, feature: F_BTN_Y, tolerance_mm: 1.0}
+    - {ref: SW7, role: btn_a, side: top, x_mm: 51.99, y_mm: 59.79, rot_deg: 0, feature: F_BTN_A, tolerance_mm: 1.0}
+    - {ref: SW8, role: btn_b, side: top, x_mm: 45.36, y_mm: 66.17, rot_deg: 0, feature: F_BTN_B, tolerance_mm: 1.0}
+    - {ref: SW9, role: btn_select, side: top, x_mm: 24.59, y_mm: 67.84, rot_deg: 0, feature: F_BTN_SE, tolerance_mm: 1.0}  # placed on PCB at (24.59, 66.85), spanning Y=-68.10..-65.60 mm (1.03 mm clear North of J1 rear edge at Y=-69.13 mm)
+    - {ref: SW10, role: btn_start, side: top, x_mm: 32.65, y_mm: 67.84, rot_deg: 0, feature: F_BTN_ST, tolerance_mm: 1.0}  # placed on PCB at (32.65, 66.85), spanning Y=-68.10..-65.60 mm (1.03 mm clear North of J1 rear edge at Y=-69.13 mm)
+    - {ref: SW11, role: btn_l1, side: top, x_mm: 6.0, y_mm: 2.2, rot_deg: 0, feature: F_BTN_L1, tolerance_mm: 1.0, mates: "-y", mates_source: "Omron B3U-3100P KiCad footprint: plunger tip at y=-2.77 mm (-y board / +Y world) at rot_deg=0"}
+    - {ref: SW12, role: btn_l2, side: top, x_mm: 16.3, y_mm: 2.2, rot_deg: 0, feature: F_BTN_L2, tolerance_mm: 1.0, mates: "-y", mates_source: "Omron B3U-3100P KiCad footprint: plunger tip at y=-2.77 mm (-y board / +Y world) at rot_deg=0"}
+    - {ref: SW13, role: btn_r2, side: top, x_mm: 41.7, y_mm: 2.2, rot_deg: 0, feature: F_BTN_R2, tolerance_mm: 1.0, mates: "-y", mates_source: "Omron B3U-3100P KiCad footprint: plunger tip at y=-2.77 mm (-y board / +Y world) at rot_deg=0"}
+    - {ref: SW14, role: btn_r1, side: top, x_mm: 52.0, y_mm: 2.2, rot_deg: 0, feature: F_BTN_R1, tolerance_mm: 1.0, mates: "-y", mates_source: "Omron B3U-3100P KiCad footprint: plunger tip at y=-2.77 mm (-y board / +Y world) at rot_deg=0"}
+    - {ref: J1, role: usb_c, side: top, x_mm: 29.0, y_mm: 73.2, rot_deg: 0, feature: F_USBC, tolerance_mm: 1.0, mates: "+y", mates_source: "HRO TYPE-C-31-M-12 KiCad footprint: receptacle mouth at y=+3.65 mm (+y board / -Y world) at rot_deg=0"}  # placed on PCB at (29.00, 74.18), spanning X=24.53..33.47, Y=-77.03..-69.13 mm (1.03 mm clear South of SW9/SW10)
+    - {ref: J2, role: display_fpc, side: top, x_mm: 29.0, y_mm: 2.9, rot_deg: 180, tolerance_mm: 1.5, mates: "-y", mates_source: "Hirose FH12-18S-0.5SH KiCad footprint: FPC mouth at y=+4.4 mm at rot_deg=0, so at rot_deg=180 mouth faces -y (top board edge)"}
+    - {ref: J3, role: battery_conn, side: top, x_mm: 41.0, y_mm: 73.2, rot_deg: 0, tolerance_mm: 1.5, mates: "+y", mates_source: "Molex PicoBlade 53261-0271 Horizontal KiCad footprint: shroud mouth at y=+2.6 mm (+y board / -Y world, facing bottom board edge) at rot_deg=0"}
+  max_component_height_mm:
+    top: 5.0
+    bottom: 2.0
+bom:
+  - {refs: [U1], role: mcu, mpn: STM32F412RET6, lcsc: C89374, footprint: "Package_QFP:LQFP-64_10x10mm_P0.5mm", description: "100 MHz ARM Cortex-M4F MCU with 512 KB Flash and 256 KB SRAM, with single VCAP_1 pin (U1.30) decoupled by C10 = 4.7uF 16V 0603 X5R low-ESR ceramic capacitor (CL10A475KO8NNNC, LCSC C19666) per ST DS11139 Table 21 / AN4488, analog supply pin VDDA/VREF+ (U1.13) isolated from digital +3V3 via ferrite bead L2 (BLM18PG121SN1D, LCSC C14709, 120 Ohm @ 100 MHz) with local decoupling C21=100nF (C307331) + C22=1uF (C29266), USB-C CC1/CC2 voltage sensing on U1.14 (PA0 / ADC1_IN0 on /USB_CC1_ADC) and U1.27 (PB1 / ADC1_IN9 on /USB_CC2_ADC) through R52/R53=10kOhm (0402WGF1002TCE C25744) series current-limiting resistors, and TP4056 charger enable control on U1.54 (PD2 / CHG_CE with R51=100k pull-down)"}
+  - {refs: [Y1], role: crystal, mpn: X322512MSB4SI, lcsc: C9002, footprint: "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm", description: "12 MHz 9 pF 60 Ohm SMD3225-4P crystal (TXM12M0004322CBCDO00T, LCSC C362368, gm_crit = 0.25 mA/V << 1.0 mA/V STM32F412 Gm_crit_max) with C1=C2=12 pF 50V C0G load capacitors (0402CG120J500NT, LCSC C1547, CL_actual = 6 pF + 3 pF = 9 pF) for HSE and USB DFU"}
+  - {refs: [J1], role: usb_c, mpn: TYPE-C-31-M-12, lcsc: C165948, footprint: "Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12", description: "16-pin USB-C receptacle for charging and USB DFU, placed at (29.00, 74.18) on F.Cu (spanning X=24.53..33.47, Y=-77.03..-69.13 mm, with 1.03 mm physical separation South of SW9/SW10 at Y=-68.10..-65.60 mm)"}
+  - {refs: [U4], role: usb_esd, mpn: USBLC6-2SC6, lcsc: C2687116, footprint: "Package_TO_SOT_SMD:SOT-23-6", description: "USB 2.0 ESD protection array for D+/D- (rail pin on VBUS), placed immediately adjacent to J1 (28.62, 65.00) alongside F1 (BSMD0805-110-12V C910824 PTC polyfuse at 21.50, 74.00), C3 (100nF VBUS_IN bypass at 21.50, 72.20), D3 (SD05 C502527 5V 350W VBUS surge TVS at 17.20, 74.00), D4 (PESD5V0S2BT C2687130 dual 5V low-clamping bidirectional CC1/CC2 ESD TVS at 20.20, 70.50, VRWM=5.0V, VBR=6.0-7.2V), and R1/R2 (5.1k CC pull-downs at 16.80, 71.00/69.50 sensed by U1.PA0/ADC1_IN0 and U1.PB1/ADC1_IN9 via R52/R53=10kOhm 0402WGF1002TCE C25744 series current-limiting resistors on /USB_CC1_ADC and /USB_CC2_ADC)"}
+  - {refs: [U2], role: battery_charger, mpn: TP4056, lcsc: C725790, footprint: "Package_SO:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm", description: "1A linear 1S Li-Ion battery charger IC configured via R3=3.3kOhm (0402WGF3301TCE C25890) on PROG for I_CHG=363.6mA (0.30C for 1200mAh cell, P_diss<=0.71W; top-level electrical.power is a scope-locked field) with U2.8 (CE) driven by MCU GPIO U1.54 (PD2) on /CHG_CE with R51=100kOhm (0402WGF1003TCE C25741) pull-down to /GND (keeping U2 off prior to USB enumeration for ~40.6mA <= 100mA unconfigured draw, and total configured SDP draw at 363.6+40.6+64.0=468.2mA typ / 480.2mA max <= 500mA) and C4=4.7uF VBUS bypass (total VBUS+VSYS bypass 9.6uF <= 10uF USB 2.0 spec)"}
+  - {refs: [Q1], role: power_path_pfet, mpn: AO3401A, lcsc: C15127, footprint: "Package_TO_SOT_SMD:SOT-23", description: "30V 4A P-channel MOSFET for USB/battery load sharing (Q1), soft-power latch (Q3, with C20=100nF C307331 connected across Q3 Source /VSYS to Gate /PWR_GATE to prevent battery-insertion auto-turn-on), J3 battery reverse-polarity protection (Q6 at 47.80, 71.20 adjacent to J3 with F2 BSMD0805-110-12V at 47.80, 74.20, R20=100k source-gate clamp at 47.80, 68.80, Q7 AO3400A C20917 gate enable at 49.50, 65.20 biased from /VSYS via R31=100k C25741 at 50.80, 67.80 for 0V PCM-tripped pack wake-up, and Q11 AO3400A C20917 negative-polarity clamp at 54.20, 68.50 feeding R30=10k C25744 at 50.80, 69.20), +3V3-gated high-side VBAT ADC switch (Q8), manual-reset (/NRST) soft-latch hold-up switch (Q10, Source on +3V3, Gate on NRST, Drain on NRST_HOLD in parallel with D5 BAT54C dual Schottky diode from +3V3 and BOOT0 feeding R49=100k C25741 into PWR_HOLD), and external button-chord DFU BOOT0 high-side series switches (Q12 gated by /BTN_SELECT and Q13 gated by /BTN_R2 from +3V3 to /BOOT0)"}
+  - {refs: [D1], role: power_path_diode, mpn: "B5819W SL", lcsc: C8598, footprint: "Diode_SMD:D_SOD-123", description: "40V 1A Schottky barrier diode for VBUS load sharing into VSYS (C6=4.7uF + C9=100nF)"}
+  - {refs: [U3], role: buck_boost_3v3, mpn: RT6150AGQW, lcsc: C147971, footprint: "Package_DFN_QFN:DFN-10-1EP_3x3mm_P0.5mm_EP1.65x2.38mm", description: "800 mA 1.8V-5.5V synchronous buck-boost regulator set to 3.30V, with +3V3-gated Q8/Q9 high-side switch and R21/R22 (2x 10kOhm C25744, R_th=5.0kOhm <= 50kOhm) + C18 (100nF C307331) VBAT divider to U1.PA2 (ADC1_IN2) for 3.0V software UVLO cutoff"}
+  - {refs: [L1], role: power_inductor, mpn: SWPA3015S2R2MT, lcsc: C43389, footprint: "Inductor_SMD:L_Sunlord_SWPA3015S", description: "2.2 uH 2A shielded power inductor for RT6150AGQW"}
+  - {refs: [J2], role: display_fpc, mpn: "FH12-18S-0.5SH(55)", lcsc: C506792, footprint: "Connector_FFC-FPC:Hirose_FH12-18S-0.5SH_1x18-1MP_P0.50mm_Horizontal", description: "18-pin 0.5mm pitch bottom-contact horizontal FPC connector for 2.4-inch 18-pin SPI ILI9341 IPS TFT display (Z240IT002 / YX240QV29-T: PA4 CS, PA5 SPI1_SCK, PA6 SPI1_MISO/LCD_SDO, PA7 SPI1_MOSI/LCD_SDA, PC5 LCD_DC, PC4 LCD_RST at 10 MHz SPI1 clock, with J2.16 IM1=+3V3, J2.17 IM2=+3V3, J2.18 IM0=GND strapping IM[2:0]=110 for 4-wire 8-bit serial SPI, backlight anode J2.12 LEDA fed from /VSYS, and cathodes J2.2..5 LEDK1..LEDK4 driven through four individual 100 Ohm 1% 0603 ballast resistors R9, R46, R47, R48 0603WAF1000T5E C22775 limiting LED current to 16.0mA/LED typ and 19.5mA/LED max <= 25mA/LED rating)"}
+  - {refs: [Q2], role: backlight_fet, mpn: 2N7002, lcsc: C8545, footprint: "Package_TO_SOT_SMD:SOT-23", description: "2.5V logic-level N-channel MOSFET (AO3400A, LCSC C20917, VGS(th)=0.65-1.45V, RDS(on)<=48mOhm @ VGS=2.5V; bom[].mpn/lcsc are scope-locked keys) for PWM display backlight control (Q2, switching four individual 100 Ohm cathode ballast resistors R9, R46, R47, R48 C22775 from /VSYS), soft-power latch hold (Q4, self-latched at 2.61V from +3V3 and BOOT0 via D5 BAT54C + R49=100k C25741 + R18=560k + C19=1uF C29266 and Q10 NRST hold-up, with active-low software shutdown via PC6), AC-coupled VBUS auto-wake (Q5, gated via C23=1uF C29266 + R50=560k C132339 so MCU can shut down +3V3 while charging), J3 reverse-polarity gate enable (Q7) and negative-polarity clamp (Q11), VBAT ADC high-side switch driver (Q9), and external button-chord DFU reset trigger (Q14, Gate on /BOOT0, Source on /BTN_B, Drain on /NRST)"}
+  - {refs: [J3], role: battery_conn, mpn: "532610271", lcsc: C177225, footprint: "Connector_Molex:Molex_PicoBlade_53261-0271_1x02-1MP_P1.25mm_Horizontal", description: "2-pin 1.25mm pitch SMD right-angle Molex PicoBlade battery connector protected immediately adjacent to J3 by series PTC polyfuse F2 (BSMD0805-110-12V at 47.80, 74.20) and reverse-polarity P-MOSFET Q6 (AO3401A at 47.80, 71.20 with R20=100k source-gate clamp at 47.80, 68.80, Q7 AO3400A C20917 gate enable at 49.50, 65.20 biased from /VSYS via R31=100k C25741 for 0V PCM-tripped pack wake-up, and Q11 AO3400A C20917 negative-polarity clamp at 54.20, 68.50 with R30=10k C25744)"}
+  - {refs: [SW1, SW2, SW3, SW4, SW5, SW6, SW7, SW8, SW9, SW10], role: front_tact_switch, mpn: B3U-1000P, lcsc: C231329, footprint: "Button_Switch_SMD:SW_SPST_B3U-1000P", description: "Omron top-actuated 3.0x2.5x1.6mm SMD tactile switch for D-pad, ABXY, Select (SW9 at 24.59, 66.85 on PB8, spanning Y=-68.10..-65.60 mm), Start (SW10 at 32.65, 66.85 on PA1, spanning Y=-68.10..-65.60 mm, 1.03 mm North of J1), conditioned with 10k external pull-ups to +3V3 (R33..R41, R19, 0402WGF1002TCE C25744) and dual 5V bidirectional ESD TVS diodes to GND (D6..D10, PESD5V0S2BT C2687130)"}
+  - {refs: [SW11, SW12, SW13, SW14], role: shoulder_tact_switch, mpn: B3U-3100P, lcsc: C6748648, footprint: "Button_Switch_SMD:SW_SPST_B3U-3100P", description: "Omron side-actuated 3.0x2.5x1.2mm SMD tactile switch for top shoulder buttons L1 (PB6), L2 (PB7), R2 (PB4), R1 (PB5), conditioned with 10k external pull-ups to +3V3 (R42..R45, 0402WGF1002TCE C25744, preventing STM32F412 ROM bootloader I2C1/CAN2 preemption on PB5/PB6/PB7) and dual 5V bidirectional ESD TVS diodes to GND (D11..D12, PESD5V0S2BT C2687130)"}
+purchased:
+  - id: display
+    description: "2.4-inch 4:3 320x240 IPS TFT LCD module (18-pin 0.5mm pitch ZIF SPI ILI9341 module Z240IT002 / YX240QV29-T: bottom-contact after 180-deg top-edge fold into J2 FH12-18S-0.5SH(55) at rot_deg=180, matching verified 18-pin FPC pinout 1=GND, 2..5=LEDK1..LEDK4, 6=RESET/PC4, 7=CS/PA4, 8=DC/PC5, 9=SCK/PA5, 10=SDA/PA7, 11=SDO/PA6, 12=LEDA, 13=VDD, 14=GND, 15=VDDI, 16=IM1/+3V3, 17=IM2/+3V3, 18=IM0/GND setting IM[2:0]=110 for 4-wire 8-bit serial SPI; operated at 10.0 MHz SPI1 clock within ILI9341 twc >= 100 ns limit)"
+    mpn: ER-TFT024-3
+    url: "https://www.buydisplay.com/2-4-inch-ips-tft-lcd-display-panel-320x240-ili9341-spi-rgb-mcu-interface"
+    datasheet: "https://www.buydisplay.com/download/manual/ER-TFT024-3_Datasheet.pdf"
+    dims_mm: [52.0, 40.0, 2.2]
+    position_mm: [3.0, -44.5, 4.2]
+    connects_to: J2
+    dims_source: "BuyDisplay ER-TFT024-3 mechanical drawing: 2.4-inch 4:3 TFT module body 52.0 x 40.0 x 2.2 mm in landscape orientation, active area 48.96 x 36.72 mm, 18-pin 0.5mm pitch FPC tail exiting top edge"
+    model: case/purchased/display.stl
+    color: "#1a1c20"
+    connectors:
+      - {id: fpc_tail, at_mm: [26.0, 40.0, 1.1], pins: 18, pitch_mm: 0.5, kind: fpc}
+  - id: battery
+    description: "1S 3.7V 1200mAh 503450 Li-Polymer rechargeable battery pack with built-in PCM protection and 2-pin 1.25mm Molex PicoBlade lead"
+    mpn: LP503450-1200mAh
+    url: "https://www.adafruit.com/product/258"
+    datasheet: "https://cdn-shop.adafruit.com/datasheets/LiIon1200mAh37V.pdf"
+    dims_mm: [34.0, 50.0, 5.0]
+    position_mm: [12.0, -68.0, -5.8]
+    connects_to: J3
+    dims_source: "Standard 503450 1S Li-Polymer cell mechanical specification: 5.0 mm max thickness x 34.0 mm width x 50.0 mm length with 2-pin 1.25 mm pitch wire harness exiting bottom-right"
+    model: case/purchased/battery.stl
+    color: "#c8b84a"
+    connectors:
+      - {id: wire_lead, at_mm: [29.0, 0.0, 2.5], pins: 2, pitch_mm: 1.25, kind: harness}
+cables:
+  - id: display_fpc
+    kind: fpc
+    a: {part: display, connector: fpc_tail}
+    b: {part: pcba, connector: J2}
+    pins: 18
+    pitch_mm: 0.5
+    length_mm: 18.0
+    width_mm: 9.5
+    route:
+      - {at_mm: [29.0, -4.5, 5.3]}
+      - {at_mm: [29.0, -0.5, 5.3]}
+      - {at_mm: [29.0, -0.5, 2.6]}
+      - {at_mm: [29.0, -2.9, 2.6]}
+    note: "18-pin 0.5mm FPC tail (Z240IT002 / YX240QV29-T 18-pin SPI ILI9341 panel, IM2=J2.17=+3V3, IM1=J2.16=+3V3, IM0=J2.18=GND setting IM[2:0]=110 for 4-wire 8-bit SPI) folding 180 deg around the top horizontal edge into bottom-contact horizontal FPC connector J2 (FH12-18S-0.5SH(55) at rot_deg=180 on F.Cu), keeping conductor 1 (+x, x=33.25mm) aligned with J2.1 through conductor 18 (-x, x=24.75mm) aligned with J2.18"
+  - id: battery_cable
+    kind: harness
+    a: {part: battery, connector: wire_lead}
+    b: {part: pcba, connector: J3}
+    pins: 2
+    pitch_mm: 1.25
+    length_mm: 22.0
+    width_mm: 2.5
+    route:
+      - {at_mm: [41.0, -68.0, -3.3]}
+      - {at_mm: [41.0, -76.3, -3.3]}
+      - {at_mm: [41.0, -76.3, 3.3]}
+      - {at_mm: [41.0, -73.2, 3.3]}
+    note: "2-wire 1.25mm PicoBlade battery harness routing around the bottom edge of pcba into horizontal header J3 (protected on-board by series PTC polyfuse F2 BSMD0805-110-12V and reverse-polarity P-MOSFET Q6 AO3401A)"
+enclosure:
+  process: cnc
+  wall_mm: 1.8
+  clearance_floor_mm: 0.2
+  parts:
+    - id: rear_shell
+      file: case/out/rear_shell.stl
+      role: shell
+      process: cnc
+      material: "6061-T6 aluminum"
+      finish: "bead-blasted dark grey anodized"
+      color: "#585b60"
+      description: "Rear CNC aluminum unibody tray with 14 vertical grip grooves, lower-left lanyard slots, battery bay, and PCB mounting bosses"
+    - id: shoulder_buttons
+      file: case/out/shoulder_buttons.stl
+      role: button
+      process: cnc
+      material: "6061-T6 aluminum"
+      finish: "black anodized"
+      color: "#222428"
+      description: "Top inline shoulder button set (L1, L2, R2, R1) seated in top wall slots of rear_shell"
+    - id: dpad
+      file: case/out/dpad.stl
+      role: button
+      process: cnc
+      material: "6061-T6 aluminum"
+      finish: "black anodized"
+      color: "#222428"
+      description: "Cross D-pad button with directional arrow engravings and retention flange"
+    - id: action_buttons
+      file: case/out/action_buttons.stl
+      role: button
+      process: cnc
+      material: "6061-T6 aluminum"
+      finish: "black anodized"
+      color: "#222428"
+      description: "Four round diamond action buttons (X, Y, A, B) with retention flanges"
+    - id: start_select_buttons
+      file: case/out/start_select_buttons.stl
+      role: button
+      process: cnc
+      material: "6061-T6 aluminum"
+      finish: "black anodized"
+      color: "#222428"
+      description: "Pair of round Select and Start buttons with retention flanges"
+    - id: front_shell
+      file: case/out/front_shell.stl
+      role: shell
+      process: cnc
+      material: "6061-T6 aluminum"
+      finish: "bead-blasted dark grey anodized"
+      color: "#585b60"
+      description: "Front CNC aluminum bezel shell with recessed display window frame, D-pad cross cutout, ABXY cutouts, and pill recess for Select/Start"
+    - id: display_window
+      file: case/out/display_window.stl
+      role: window
+      process: cnc
+      material: "PMMA acrylic / tempered cover glass"
+      finish: "clear optical window with black border mask"
+      color: "#111316"
+      description: "Flush front cover glass lens seated in the recessed ledge of front_shell"
+assembly:
+  - part: rear_shell
+    travel_mm: 0
+    held_by: base
+    note: "Base CNC aluminum rear housing"
+  - part: battery
+    direction: [0, 0, -1]
+    travel_mm: 20
+    may_touch: [rear_shell]
+    held_by: captured
+    note: "1S 1300mAh LiPo battery seated into rear_shell pocket, captured beneath pcba"
+  - part: pcba
+    direction: [0, 0, -1]
+    travel_mm: 25
+    may_touch: [rear_shell]
+    held_by: captured
+    note: "Main PCBA lowered onto rear_shell standoffs and captured by front_shell bosses"
+  - part: display
+    direction: [0, 0, -1]
+    travel_mm: 25
+    may_touch: [pcba, rear_shell]
+    held_by: captured
+    note: "2.4-inch IPS TFT module seated above upper half of pcba and captured under front_shell"
+  - part: shoulder_buttons
+    direction: [0, 0, -1]
+    travel_mm: 15
+    may_touch: [rear_shell, pcba]
+    held_by: captured
+    note: "Top shoulder buttons (L1, L2, R2, R1) inserted into top edge slots and captured by front_shell"
+  - part: dpad
+    direction: [0, 0, -1]
+    travel_mm: 25
+    may_touch: [pcba]
+    held_by: captured
+    note: "Cross D-pad seated over SW1..SW4 and captured by front_shell cutout flange"
+  - part: action_buttons
+    direction: [0, 0, -1]
+    travel_mm: 25
+    may_touch: [pcba]
+    held_by: captured
+    note: "Action buttons X, Y, A, B seated over SW5..SW8 and captured by front_shell cutout flanges"
+  - part: start_select_buttons
+    direction: [0, 0, -1]
+    travel_mm: 25
+    may_touch: [pcba]
+    held_by: captured
+    note: "Select and Start buttons seated over SW9..SW10 and captured by front_shell cutout flanges"
+  - part: front_shell
+    direction: [0, 0, -1]
+    travel_mm: 30
+    may_touch: [rear_shell, pcba, display, shoulder_buttons, dpad, action_buttons, start_select_buttons]
+    held_by: press_fit
+    held_with: [rear_shell]
+    note: "Front CNC aluminum shell press-fitted onto rear_shell perimeter step, capturing internal parts and buttons"
+  - part: display_window
+    direction: [0, 0, -1]
+    travel_mm: 15
+    may_touch: [front_shell, display]
+    held_by: press_fit
+    held_with: [front_shell]
+    note: "Display cover glass press-fitted into the front_shell window recess"
+actuators:
+  - id: A_DPAD_UP
+    feature: F_DPAD_UP
+    case_part: dpad
+    target: {part: pcba, ref: SW1}
+    kind: push
+    element_axis: [0, 0, -1]
+    travel_mm: 0.25
+    source: "Omron B3U-1000P datasheet: top-actuated SMD tactile switch, 1.6 mm height, 0.25 mm travel"
+  - id: A_DPAD_DOWN
+    feature: F_DPAD_DOWN
+    case_part: dpad
+    target: {part: pcba, ref: SW2}
+    kind: push
+    element_axis: [0, 0, -1]
+    travel_mm: 0.25
+    source: "Omron B3U-1000P datasheet: top-actuated SMD tactile switch, 1.6 mm height, 0.25 mm travel"
+  - id: A_DPAD_LEFT
+    feature: F_DPAD_LEFT
+    case_part: dpad
+    target: {part: pcba, ref: SW3}
+    kind: push
+    element_axis: [0, 0, -1]
+    travel_mm: 0.25
+    source: "Omron B3U-1000P datasheet: top-actuated SMD tactile switch, 1.6 mm height, 0.25 mm travel"
+  - id: A_DPAD_RIGHT
+    feature: F_DPAD_RIGHT
+    case_part: dpad
+    target: {part: pcba, ref: SW4}
+    kind: push
+    element_axis: [0, 0, -1]
+    travel_mm: 0.25
+    source: "Omron B3U-1000P datasheet: top-actuated SMD tactile switch, 1.6 mm height, 0.25 mm travel"
+  - id: A_BTN_X
+    feature: F_BTN_X
+    case_part: action_buttons
+    target: {part: pcba, ref: SW5}
+    kind: push
+    element_axis: [0, 0, -1]
+    travel_mm: 0.25
+    source: "Omron B3U-1000P datasheet: top-actuated SMD tactile switch, 1.6 mm height, 0.25 mm travel"
+  - id: A_BTN_Y
+    feature: F_BTN_Y
+    case_part: action_buttons
+    target: {part: pcba, ref: SW6}
+    kind: push
+    element_axis: [0, 0, -1]
+    travel_mm: 0.25
+    source: "Omron B3U-1000P datasheet: top-actuated SMD tactile switch, 1.6 mm height, 0.25 mm travel"
+  - id: A_BTN_A
+    feature: F_BTN_A
+    case_part: action_buttons
+    target: {part: pcba, ref: SW7}
+    kind: push
+    element_axis: [0, 0, -1]
+    travel_mm: 0.25
+    source: "Omron B3U-1000P datasheet: top-actuated SMD tactile switch, 1.6 mm height, 0.25 mm travel"
+  - id: A_BTN_B
+    feature: F_BTN_B
+    case_part: action_buttons
+    target: {part: pcba, ref: SW8}
+    kind: push
+    element_axis: [0, 0, -1]
+    travel_mm: 0.25
+    source: "Omron B3U-1000P datasheet: top-actuated SMD tactile switch, 1.6 mm height, 0.25 mm travel"
+  - id: A_BTN_SE
+    feature: F_BTN_SE
+    case_part: start_select_buttons
+    target: {part: pcba, ref: SW9}
+    kind: push
+    element_axis: [0, 0, -1]
+    travel_mm: 0.25
+    source: "Omron B3U-1000P datasheet: top-actuated SMD tactile switch, 1.6 mm height, 0.25 mm travel"
+  - id: A_BTN_ST
+    feature: F_BTN_ST
+    case_part: start_select_buttons
+    target: {part: pcba, ref: SW10}
+    kind: push
+    element_axis: [0, 0, -1]
+    travel_mm: 0.25
+    source: "Omron B3U-1000P datasheet: top-actuated SMD tactile switch, 1.6 mm height, 0.25 mm travel"
+  - id: A_BTN_L1
+    feature: F_BTN_L1
+    case_part: shoulder_buttons
+    target: {part: pcba, ref: SW11}
+    kind: slide
+    element_axis: [0, -1, 0]
+    travel_mm: 0.25
+    source: "Omron B3U-3100P datasheet: side-actuated SMD tactile switch, 1.2 mm height, 0.25 mm travel"
+  - id: A_BTN_L2
+    feature: F_BTN_L2
+    case_part: shoulder_buttons
+    target: {part: pcba, ref: SW12}
+    kind: slide
+    element_axis: [0, -1, 0]
+    travel_mm: 0.25
+    source: "Omron B3U-3100P datasheet: side-actuated SMD tactile switch, 1.2 mm height, 0.25 mm travel"
+  - id: A_BTN_R2
+    feature: F_BTN_R2
+    case_part: shoulder_buttons
+    target: {part: pcba, ref: SW13}
+    kind: slide
+    element_axis: [0, -1, 0]
+    travel_mm: 0.25
+    source: "Omron B3U-3100P datasheet: side-actuated SMD tactile switch, 1.2 mm height, 0.25 mm travel"
+  - id: A_BTN_R1
+    feature: F_BTN_R1
+    case_part: shoulder_buttons
+    target: {part: pcba, ref: SW14}
+    kind: slide
+    element_axis: [0, -1, 0]
+    travel_mm: 0.25
+    source: "Omron B3U-3100P datasheet: side-actuated SMD tactile switch, 1.2 mm height, 0.25 mm travel"
+requirements:
+  - id: R1
+    text: "Handheld retro game console like the one in these photos"
+    how_met: "63 x 81 x 17 mm anodized CNC aluminum vertical handheld enclosure with 2.4-inch IPS display window, cross D-pad, diamond ABXY buttons, Select/Start buttons, 4 inline top shoulder buttons (L1/L2/R2/R1), rear vertical grip grooves, and lanyard holes matching the reference photos"
+    quantity: "63 x 81 x 17 mm, 14 buttons + 2.4-inch display"
+  - id: R2
+    text: "Run simple 2D games"
+    how_met: "STM32F412RET6 100 MHz ARM Cortex-M4F MCU (80 MHz SYSCLK/APB2, clocked from 12 MHz CL=9pF ESR=60Ohm crystal Y1 TXM12M0004322CBCDO00T with C1=C2=12pF C0G load capacitors, gm_crit=0.25mA/V << 1.0mA/V, single VCAP_1 pin U1.30 decoupled with C10=4.7uF 16V 0603 X5R CL10A475KO8NNNC C19666 per ST DS11139/AN4488, and U1.13 VDDA/VREF+ isolated from +3V3 via ferrite bead L2 BLM18PG121SN1D C14709 + C21=100nF/C22=1uF) with 512 KB Flash and 256 KB contiguous single-block SRAM holding a full 320x240 16-bit RGB565 frame buffer (150 KB) with 106 KB headroom for game logic and DMA-driven 10.0 MHz SPI1 dirty-rectangle updates (PA4 CS, PA5 SPI1_SCK, PA6 SPI1_MISO/LCD_SDO, PA7 SPI1_MOSI/LCD_SDA, PC5 LCD_DC, PC4 LCD_RST, meeting ILI9341 twc >= 100 ns limit) to the 18-pin 2.4-inch 320x240 IPS TFT display (Z240IT002 / YX240QV29-T with J2.16 IM1=+3V3, J2.17 IM2=+3V3, J2.18 IM0=GND setting IM[2:0]=110 for 4-wire 8-bit SPI, J2.12 LEDA powered from /VSYS, and J2.2..5 LEDK1..LEDK4 driven via four individual 100 Ohm 1% 0603 ballast resistors R9, R46, R47, R48 0603WAF1000T5E C22775 and AO3400A logic-level MOSFET Q2 on PB0 limiting backlight current to 16.0mA/LED typ and 19.5mA/LED max <= 25mA/LED), with all 14 buttons conditioned by external 10k pull-ups (R33..R45, R19) and dual 5V bidirectional ESD TVS arrays (D6..D12 PESD5V0S2BT)"
+    quantity: "80-100 MHz Cortex-M4F, 256 KB SRAM, 10.0 MHz SPI1 DMA @ 60 fps"
+  - id: R3
+    text: "Charge over USB-C"
+    how_met: "Bottom-edge 16-pin USB-C receptacle J1 (TYPE-C-31-M-12) with immediately adjacent protection: 5.1k CC1/CC2 pull-down resistors (R1, R2 at 16.80, 71.00/69.50 sensed through 10kOhm series current-limiting resistors R52, R53 0402WGF1002TCE C25744 on MCU ADC1 inputs U1.14 PA0/ADC1_IN0 /USB_CC1_ADC and U1.27 PB1/ADC1_IN9 /USB_CC2_ADC to detect Default/1.5A/3.0A Type-C source advertisement), PESD5V0S2BT dual 5V low-clamping bidirectional CC1/CC2 ESD TVS (D4 C2687130 at 20.20, 70.50, VRWM=5.0V, VBR=6.0-7.2V), USBLC6-2SC6 D+/D- ESD array (U4 at 28.62, 65.00), BSMD0805-110-12V 1.1A PTC polyfuse (F1 at 21.50, 74.00), SD05 5V 350W VBUS surge TVS (D3 at 17.20, 74.00), C3=100nF (21.50, 72.20) + C4=4.7uF VBUS bypass (total VBUS+VSYS capacitance 9.6uF <= 10uF USB 2.0 spec), TP4056 1S Li-Ion linear charger U2 (R3=3.3kOhm C25890 for 363.6mA charge current, with U2.8 CE controlled on /CHG_CE by U1.54 PD2 and pulled low by R51=100kOhm C25741 so U2 stays disabled prior to USB enumeration for ~40.6mA <= 100mA unconfigured draw and <= 480.2mA max configured SDP draw), J3 battery PTC polyfuse (F2 at 47.80, 74.20) + AO3401A reverse-polarity P-MOSFET (Q6 at 47.80, 71.20 with R20=100k source-gate clamp, Q7 AO3400A C20917 gate enable biased from /VSYS via R31=100k C25741 for 0V PCM-tripped battery wake-up, and Q11 AO3400A C20917 negative-polarity clamp at 54.20, 68.50 with R30=10k C25744), AO3401A/B5819W load-sharing power path, hardware-self-latching soft-power latch (Q3 AO3401A with C20=100nF across /VSYS-to-/PWR_GATE, Q4 AO3400A self-latched at 2.61V from /+3V3 and /BOOT0 via D5 BAT54C + R49=100k C25741 + R18=560k + C19=1uF + Q10 /NRST hold-up, and Q5 AO3400A AC-coupled via C23=1uF + R50=560k from /VBUS), unclamped VBUS_SNS divider (R23=5.1k/R24=10k, 3.31V nominal) to 5V-tolerant FT pin PA9 (U1.42), and +3V3-gated Q8/Q9 + 2x 10kOhm + 100nF VBAT ADC divider to PA2 (ADC1_IN2)"
+    quantity: "5 V USB-C input, protected 1S LiPo charging, 9.6 uF total USB bypass"
+decisions:
+  - question: "MCU selection and memory sizing for 2D retro games on a 320x240 16-bit display?"
+    choice: "STM32F412RET6 (LCSC C89374, LQFP-64, 100 MHz ARM Cortex-M4F, 512 KB Flash, 256 KB contiguous SRAM) with 12 MHz CL=9pF ESR=60Ohm HSE crystal Y1 (TXM12M0004322CBCDO00T, C362368), C1=C2=12pF C0G load capacitors (0402CG120J500NT, C1547), C10=4.7uF 0603 X5R VCAP_1 capacitor (CL10A475KO8NNNC, C19666), and L2 (BLM18PG121SN1D, C14709) + C21=100nF/C22=1uF VDDA filter"
+    reason: "A 320x240 16-bit RGB565 frame buffer requires 153.6 KB (150 KB). Unlike STM32F405 where 64 KB of the 192 KB RAM is non-DMA CCM RAM, all 256 KB of SRAM on STM32F412RET6 is contiguous DMA-accessible SRAM, leaving 106 KB for sprites/audio/game state while streaming dirty-rectangle/tile updates via SPI1 DMA at 10.0 MHz (SYSCLK = 80 MHz, APB2/8 = 10.0 MHz, meeting ILI9341 4-wire SPI minimum write cycle twc = 100 ns / 10 MHz max, and APB2/16 = 5.0 MHz for read cycles within trc = 150 ns / 6.67 MHz max). Using a 12 MHz crystal with CL=9pF and ESR(max)=60 Ohm (TXM12M0004322CBCDO00T, C362368) gives gm_crit = 0.25 mA/V << Gm_crit_max = 1.0 mA/V (gain margin > 16), and sizing C1 = C2 = 12 pF (C1547) yields CL(actual) = 6 pF + 3 pF(stray) = 9.0 pF. Because the LQFP-64 package bonds out only a single VCAP_1 pin (U1.30), decoupling VCAP_1 with C10 = 4.7 uF 16V 0603 X5R (CL10A475KO8NNNC, C19666, ESR << 1 Ohm) satisfies ST DS11139 Table 21 and AN4488, and isolating U1.13 (VDDA/VREF+) from digital +3V3 with ferrite bead L2 (BLM18PG121SN1D, C14709) and C21=100nF + C22=1uF keeps analog ADC reference noise-free."
+  - question: "Power path, input protection, and voltage regulation across full 1S LiPo discharge range (3.0 V to 4.2 V) and USB 5.0 V?"
+    choice: "USB-C 5V J1 -> immediately adjacent C3=100nF (21.5, 72.2) + F1 (BSMD0805-110-12V 1.1A 12V PTC polyfuse, C910824 at 21.5, 74.0) + D3 (SD05 5V 350W surge TVS, C502527 at 17.2, 74.0) + U4 (USBLC6-2SC6 at 28.62, 65.0) + D4 (PESD5V0S2BT dual 5V low-clamping bidirectional CC1/CC2 ESD TVS, C2687130 at 20.2, 70.5, VRWM=5.0V, VBR=6.0-7.2V) + R1/R2 (5.1k CC pull-downs sensed through R52/R53=10kOhm 0402WGF1002TCE C25744 series current-limiting resistors on U1.PA0/ADC1_IN0 /USB_CC1_ADC and U1.PB1/ADC1_IN9 /USB_CC2_ADC) + C4=4.7uF on VBUS -> TP4056 charger (U2, R3=3.3kOhm C25890 for 363.6mA, with U2.8 CE controlled on /CHG_CE by U1.54 PD2 + R51=100k C25741 pull-down to /GND) + J3 battery connector protected immediately adjacent to J3 by F2 (BSMD0805-110-12V PTC polyfuse at 47.8, 74.2) and Q6 (AO3401A P-MOSFET reverse-polarity stage at 47.8, 71.2 with R20=100k source-gate clamp at 47.8, 68.8, Q7 AO3400A C20917 gate enable at 49.5, 65.2 biased from /VSYS via R31=100k C25741 at 50.8, 67.8, and Q11 AO3400A C20917 negative-polarity clamp at 54.2, 68.5 with R30=10k C25744 at 50.8, 69.2) -> AO3401A/B5819W load-sharing path (with C6=4.7uF + C9=100nF on VSYS so total VBUS+VSYS bypass is 9.6 uF <= 10 uF USB 2.0 limit) -> hardware-self-latching soft-power latch (Q3 AO3401A with C20=100nF across /VSYS-to-/PWR_GATE, Q4 AO3400A with C19=1uF + R18=560k + D5 BAT54C from /+3V3 and /BOOT0 + Q10 AO3401A /NRST hold-up feeding R49=100k C25741 into /PWR_HOLD, Q5 AO3400A AC-coupled via C23=1uF + R50=560k from /VBUS, D2 BAT54C) -> RT6150AGQW 3.30V buck-boost (U3) + Q8/Q9/R32 +3V3-gated R21/R22 (2x 10kOhm, R_th=5.0kOhm) & C18 (100nF) VBAT ADC divider to U1.PA2 (ADC1_IN2) and unclamped VBUS_SNS divider (R23=5.1k/R24=10k) to 5V-tolerant FT pin U1.PA9"
+    reason: "Biasing Q7 Gate (/VBAT_RP_EN) from /VSYS through R31=100kOhm while clamping /VBAT_RP_EN to /VBAT_FUSED through R30=10kOhm and negative-polarity N-MOSFET Q11 (AO3400A, Gate on /GND, Source on /VBAT_FUSED, Drain on /VBAT_RP_CLAMP) solves 0V PCM-tripped battery recovery without sacrificing reverse-polarity protection: when a PCM-tripped pack is at 0V (/VBAT_FUSED = 0V) and USB is connected (/VSYS = 4.70V), Q11 has V_GS = 0V (off, body diode reverse-biased), so R31 pulls /VBAT_RP_EN to 4.70V, turning on Q7 and Q6 so U2 can deliver its 36.4mA trickle charge to reset the pack PCM; on battery-only operation (+2.5V..+4.2V), Q11's body diode conducts through R30=10k and R31=100k pulls from /VSYS to keep Q7/Q6 on; if a battery is inserted in reverse (-1.5V to -4.2V), Q11 turns on hard (V_GS = +1.5V..+4.2V > V_GS(th,max) = 1.45V) and pulls /VBAT_RP_EN negative (-0.91V to -3.37V against R31=100k from /VSYS <= 4.95V), holding Q7 and Q6 strictly off. Controlling U2.8 (CE) on /CHG_CE via U1.54 (PD2) with R51=100kOhm pull-down keeps U2 disabled (I_CC <= 55uA) upon USB plug-in and during reset/DFU so unconfigured /VBUS current is only ~40.6mA (<= 100mA USB 2.0 unconfigured limit). Sensing /USB_CC1 and /USB_CC2 through series 10kOhm current-limiting resistors R52 and R53 (0402WGF1002TCE C25744, total ADC source resistance R_AIN = 15.1kOhm <= 50kOhm STM32F412 DS11139 Table 65 limit) on U1.14 (PA0/ADC1_IN0 /USB_CC1_ADC) and U1.27 (PB1/ADC1_IN9 /USB_CC2_ADC) with 5V bidirectional TVS clamping at D4 (PESD5V0S2BT C2687130, VRWM=5.0V, VBR=6.0-7.2V, VCL<=12V at 3A, limiting MCU pin injection current to <= 1.2mA << 5mA rating) allows firmware to safely distinguish Default USB (0.41V) from 1.5A (0.92V) and 3.0A (1.68V) Type-C sources, and sizing R3=3.3kOhm (I_CHG=363.6mA) + R9/R46..R48=100Ohm (64.0mA typ / 78.0mA max backlight) keeps total play-while-charging /VBUS current at 468.2mA typ (480.2mA max at V_BUS=5.25V), strictly below the 500mA USB 2.0 SDP limit."
+  - question: "Display interface, 18-pin FPC contact orientation, SPI1 pin muxing, and backlight drive path?"
+    choice: "2.4-inch 320x240 IPS SPI TFT panel (18-pin 0.5mm pitch ZIF SPI ILI9341 module Z240IT002 / YX240QV29-T) via bottom-contact 18-pin 0.5mm FPC connector J2 (FH12-18S-0.5SH(55) at rot_deg=180 on F.Cu), wired to hardware SPI1 on U1 (PA4=LCD_CS, PA5=SPI1_SCK/LCD_SCK, PA6=SPI1_MISO/LCD_SDO, PA7=SPI1_MOSI/LCD_SDA, dedicated GPIO PC5=LCD_DC, dedicated GPIO PC4=LCD_RST) at 10.0 MHz SPI1 clock, with J2.16 (IM1)=+3V3, J2.17 (IM2)=+3V3, J2.18 (IM0)=GND (IM[2:0]=110 for 4-wire 8-bit serial SPI), backlight anode J2.12 (LEDA) powered from /VSYS, and cathodes J2.2..5 (LEDK1..LEDK4) switched via four individual 100 ohm 1% 0603 ballast resistors (R9, R46, R47, R48, 0603WAF1000T5E C22775) and 2.5V logic-level N-MOSFET Q2 (AO3400A C20917) on PB0 (TIM3_CH3)"
+    reason: "With the LCD seated face-up above the PCB and its 18-pin 0.5mm FPC tail folding 180 deg around the top horizontal board edge (y=0) into J2 (FH12-18S-0.5SH(55), bottom-contact, rot_deg=180), the contact face flips to bottom-contact (-z) with no left-right conductor reversal (conductor 1 at x=33.25mm mates with J2.1 GND, pins 2..5=LEDK1..LEDK4, 6=LCD_RST/PC4, 7=LCD_CS/PA4, 8=LCD_DC/PC5, 9=LCD_SCK/PA5, 10=LCD_SDA/PA7, 11=LCD_SDO/PA6, 12=LEDA/VSYS, 13=VDD/+3V3, 14=GND, 15=VDDI/+3V3, 16=IM1/+3V3, 17=IM2/+3V3, 18=IM0/GND setting IM[2:0]=110 / IM[3:0]=1110 for 4-wire 8-bit serial SPI per Ilitek ILI9341 datasheet Section 7.1). Powering J2.12 (LEDA) from /VSYS (3.7-4.95V) instead of +3V3 provides headroom above the 3.0-3.2V white LED VF and removes PWM switching ripple from +3V3; four individual 100 Ohm 1% 0603 ballast resistors (R9, R46, R47, R48, 0603WAF1000T5E C22775) limit per-LED current on USB power (V_SYS = 4.70V typ, 4.95V max) to 16.0mA/LED typ (64.0mA total) and 19.5mA/LED max (78.0mA total) at 100% duty cycle, within the ER-TFT024-3 15-20mA/LED typical specification and < 25mA/LED absolute maximum DC rating."
+  - question: "Firmware flashing and boot recovery path?"
+    choice: "Native USB 2.0 Full-Speed DFU over USB-C receptacle J1 (PA11/USB_DM, PA12/USB_DP through USBLC6-2SC6 ESD array U4) with 12 MHz CL=9pF ESR=60Ohm HSE crystal Y1 (TXM12M0004322CBCDO00T, C362368) and C1=C2=12pF load capacitors (C1547), external button-chord hardware DFU strap (series P-MOSFETs Q12/Q13 AO3401A from /+3V3 to /BOOT0 gated by external buttons SW9 Select and SW13 R2, plus N-MOSFET Q14 AO3400A with Gate on /BOOT0, Source on SW8 B, Drain on /NRST so holding Select+R2 and tapping B enters ROM USB DFU without opening the press-fit enclosure), internal tactile switches SW15 (BOOT0) and SW16 (NRST) + SWD/DFU test pads TP1..TP6 for bare-PCBA bring-up prior to LCD assembly, and external 10k pull-up resistors (R33..R45, R19) + dual 5V bidirectional ESD TVS diodes (D6..D12, PESD5V0S2BT C2687130) on all 14 user buttons"
+    reason: "Per ST RM0402 Section 2.4 and AN2606 Table 85, STM32F412RET6 boots into its factory-ROM USB OTG FS DFU bootloader when BOOT0=1 and BOOT1=0 at reset with a 12 MHz HSE crystal on PH0/PH1, provided active bootloader peripheral pins (USART1/2/3 RX, I2C1/3 SCL/SDA on PB6/PB7/PA8/PC9, and CAN2_RX on PB5) are held idle high via external 10k pull-ups (R25..R29 and button pull-ups R33..R45). Because SW15, SW16, and TP1..TP6 sit beneath the LCD module inside the press-fit CNC shell (used for bare-PCBA programming before LCD installation), adding series P-MOSFETs Q12 (Gate on /BTN_SELECT) and Q13 (Gate on /BTN_R2) from /+3V3 to /BOOT0 together with N-MOSFET Q14 (Gate on /BOOT0, Source on /BTN_B, Drain on /NRST) provides non-invasive external hardware recovery: holding Select + R2 pulls /BOOT0 high (3.3V across R8=10k), and pressing/releasing B pulls /NRST low via Q14 and releases /NRST with BOOT0=1 to enter ROM USB DFU mode from outside the sealed enclosure."
