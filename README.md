@@ -82,7 +82,7 @@ board) → P-FET/Schottky power path → RT6150 buck-boost to a steady 3.3 V acr
 
 CopperPilot's agents worked from the prompt in [reference/prompt.md](reference/prompt.md) and 4 reference photos ([reference/](reference)). The pipeline scopes the product into a written contract ([design/spec.yaml](design/spec.yaml)), designs the boards and the enclosure in parallel, integrates them, and only moves on when the gates pass. A separate review agent reads every board against the part datasheets, and a separate judge compares the result with the photos.
 
-- Pipeline wall clock: about **19 h** over 7 launches (pipeline v98 to v123).
+- Pipeline wall clock: about **19 h** over 9 launches (pipeline v98 to v127).
 
 **Reference vs build:**
 
